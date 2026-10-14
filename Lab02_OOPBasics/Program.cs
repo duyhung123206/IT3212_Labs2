@@ -9,11 +9,11 @@ class Program
 
         try
         {
-            // Khởi tạo đối tượng Nhân viên (Mã NV, Họ tên, Lương cơ bản, Hệ số lương, Phụ cấp)
-            NhanVien nv = new NhanVien("NV01", "Nguyễn Duy Hưng", 3000000, 2.34, 500000);
+            // Khởi tạo hình chữ nhật với chiều dài và chiều rộng
+            HinhChuNhat hcn = new HinhChuNhat(12.5, 5.0);
 
-            Console.WriteLine("--- BẢNG LƯƠNG NHÂN VIÊN ---");
-            nv.HienThi();
+            Console.WriteLine("--- KẾT QUẢ HÌNH CHỮ NHẬT ---");
+            hcn.HienThi();
         }
         catch (Exception ex)
         {
