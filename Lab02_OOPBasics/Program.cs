@@ -4,26 +4,20 @@ class Program
 {
     static void Main()
     {
+        // Hỗ trợ hiển thị tiếng Việt có dấu trong Console
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         try
         {
-            // Khởi tạo tài khoản ngân hàng và thử nghiệm nạp/rút tiền
-            TaiKhoanNganHang tk = new TaiKhoanNganHang("123456789", "Nguyễn Duy Hưng", 5000000);
-            Console.WriteLine("Thông tin tài khoản ban đầu:");
-            tk.HienThi();
+            // Khởi tạo đối tượng Nhân viên (Mã NV, Họ tên, Lương cơ bản, Hệ số lương, Phụ cấp)
+            NhanVien nv = new NhanVien("NV01", "Nguyễn Duy Hưng", 3000000, 2.34, 500000);
 
-            Console.WriteLine("\nThực hiện nạp thêm 2,000,000 VNĐ...");
-            tk.NapTien(2000000);
-            tk.HienThi();
-
-            Console.WriteLine("\nThực hiện rút 1,500,000 VNĐ...");
-            tk.RutTien(1500000);
-            tk.HienThi();
+            Console.WriteLine("--- BẢNG LƯƠNG NHÂN VIÊN ---");
+            nv.HienThi();
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Lỗi giao dịch: " + ex.Message);
+            Console.WriteLine("Lỗi: " + ex.Message);
         }
     }
 }
