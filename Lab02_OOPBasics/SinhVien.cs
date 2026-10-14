@@ -2,7 +2,6 @@
 
 public class SinhVien
 {
-    // Các trường private làm backing field
     private string _hoTen;
     private double _diemTB;
 
@@ -32,7 +31,6 @@ public class SinhVien
         }
     }
 
-    // Constructor không tham số
     public SinhVien()
     {
         MaSV = "Chưa có";
@@ -41,18 +39,35 @@ public class SinhVien
         DiemTB = 0;
     }
 
-    // Constructor đầy đủ tham số
     public SinhVien(string maSV, string hoTen, DateTime ngaySinh, double diemTB)
     {
         MaSV = maSV;
-        HoTen = hoTen; // Sẽ tự động gọi qua bộ kiểm tra (setter) của HoTen
+        HoTen = hoTen;
         NgaySinh = ngaySinh;
-        DiemTB = diemTB; // Sẽ tự động gọi qua bộ kiểm tra (setter) của DiemTB
+        DiemTB = diemTB;
+    }
+
+    // 1. Phương thức tính tuổi
+    public int TinhTuoi()
+    {
+        int tuoi = DateTime.Today.Year - NgaySinh.Year;
+        if (NgaySinh.Date > DateTime.Today.AddYears(-tuoi)) tuoi--;
+        return tuoi;
+    }
+
+    // 2. Phương thức xếp loại học lực
+    public string XepLoai()
+    {
+        if (DiemTB >= 9) return "Xuất sắc";
+        if (DiemTB >= 8) return "Giỏi";
+        if (DiemTB >= 6.5) return "Khá";
+        if (DiemTB >= 5) return "Trung bình";
+        return "Yếu";
     }
 
     public void HienThi()
     {
-        Console.WriteLine("{0} - {1} - {2:dd/MM/yyyy} - {3:N2}",
-            MaSV, HoTen, NgaySinh, DiemTB);
+        Console.WriteLine("{0} - {1} - {2:dd/MM/yyyy} - {3:N2} - Tuổi: {4} - Xếp loại: {5}",
+            MaSV, HoTen, NgaySinh, DiemTB, TinhTuoi(), XepLoai());
     }
 }
