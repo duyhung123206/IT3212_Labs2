@@ -2,12 +2,37 @@
 
 public class SinhVien
 {
-    public string MaSV { get; set; }
-    public string HoTen { get; set; }
-    public DateTime NgaySinh { get; set; }
-    public double DiemTB { get; set; }
+    // Các trường private làm backing field
+    private string _hoTen;
+    private double _diemTB;
 
-    // 1. Constructor không tham số (mặc định)
+    public string MaSV { get; set; }
+
+    public string HoTen
+    {
+        get { return _hoTen; }
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Họ tên không được rỗng.");
+            _hoTen = value.Trim();
+        }
+    }
+
+    public DateTime NgaySinh { get; set; }
+
+    public double DiemTB
+    {
+        get { return _diemTB; }
+        set
+        {
+            if (value < 0 || value > 10)
+                throw new ArgumentOutOfRangeException("DiemTB", "Điểm trung bình phải từ 0 đến 10.");
+            _diemTB = value;
+        }
+    }
+
+    // Constructor không tham số
     public SinhVien()
     {
         MaSV = "Chưa có";
@@ -16,13 +41,13 @@ public class SinhVien
         DiemTB = 0;
     }
 
-    // 2. Constructor đầy đủ tham số (nạp chồng constructor)
+    // Constructor đầy đủ tham số
     public SinhVien(string maSV, string hoTen, DateTime ngaySinh, double diemTB)
     {
         MaSV = maSV;
-        HoTen = hoTen;
+        HoTen = hoTen; // Sẽ tự động gọi qua bộ kiểm tra (setter) của HoTen
         NgaySinh = ngaySinh;
-        DiemTB = diemTB;
+        DiemTB = diemTB; // Sẽ tự động gọi qua bộ kiểm tra (setter) của DiemTB
     }
 
     public void HienThi()
