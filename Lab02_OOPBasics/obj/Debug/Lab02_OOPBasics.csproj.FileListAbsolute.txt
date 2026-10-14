@@ -5,3 +5,4 @@ C:\nguyenduyhung\IT3212_Labs2\Lab02_OOPBasics\obj\Debug\Lab02_OOPBasics.csproj.A
 C:\nguyenduyhung\IT3212_Labs2\Lab02_OOPBasics\obj\Debug\Lab02_OOPBasics.csproj.CoreCompileInputs.cache
 C:\nguyenduyhung\IT3212_Labs2\Lab02_OOPBasics\obj\Debug\Lab02_OOPBasics.exe
 C:\nguyenduyhung\IT3212_Labs2\Lab02_OOPBasics\obj\Debug\Lab02_OOPBasics.pdb
+C:\nguyenduyhung\IT3212_Labs2\Lab02_OOPBasics\obj\Debug\Lab02_OOPBasics.exe.config
